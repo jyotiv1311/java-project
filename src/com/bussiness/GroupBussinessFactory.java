@@ -13,7 +13,6 @@ public class GroupBussinessFactory {
         case JIOCINEMA : return  new JioCinema();
         default : return null;
     }
-   
        
 }
 }
