@@ -27,15 +27,23 @@ class RailwaySystem {
                 case 1:
                       System.out.println("enter seat number you want to book : ");
                       int seatBook = sc.nextInt();
-                      tb.bookTicket(seatBook);
+                      sc.nextLine();
+                      System.out.println("Enter the seat type (window, aisle, middle): ");
+                      String seatBookType = sc.nextLine();
+                      tb.bookTicket(seatBook,seatBookType);
                     break;
                 case 2:
                       System.out.println("enter seat number you want to cancel : ");
                       int seatCancel = sc.nextInt();
-                      tc.cancelTicket(seatCancel);
+                      sc.nextLine();
+                       System.out.println("Enter the seat type (window, aisle, middle): ");
+                      String seatCancelType = sc.nextLine();
+                      tc.cancelTicket(seatCancel,seatCancelType);
                       break;
                 case 3:
-                    ca.checkAvailability();
+                      System.out.print("Enter the seat type (window, aisle, middle): ");
+                       String seatTypeCheck = sc.next();
+                       ca.checkAvailability(seatTypeCheck);
                     break;
                 case 4:
                     System.out.println("Exiting the program.");
