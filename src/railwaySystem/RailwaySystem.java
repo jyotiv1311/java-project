@@ -6,9 +6,7 @@ class RailwaySystem {
 
     public static void main(String[] args) {
 
-        TicketBooking tb = new TicketBooking();
-        TicketCanceling tc = new TicketCanceling();
-        CheckSeatAvailable ca = new CheckSeatAvailable();
+
         Scanner sc = new Scanner(System.in);
         System.out.println("enter number of seats : ");
          int numSeats = sc.nextInt();
@@ -25,25 +23,20 @@ class RailwaySystem {
 
             switch (choice) {
                 case 1:
+                       TicketBooking tb = TicketFactory.createTicketBooking();
                       System.out.println("enter seat number you want to book : ");
                       int seatBook = sc.nextInt();
-                      sc.nextLine();
-                      System.out.println("Enter the seat type (window, aisle, middle): ");
-                      String seatBookType = sc.nextLine();
-                      tb.bookTicket(seatBook,seatBookType);
+                      tb.bookTicket(seatBook);
                     break;
                 case 2:
+                     TicketCanceling tc = TicketFactory.createTicketCanceling();
                       System.out.println("enter seat number you want to cancel : ");
                       int seatCancel = sc.nextInt();
-                      sc.nextLine();
-                       System.out.println("Enter the seat type (window, aisle, middle): ");
-                      String seatCancelType = sc.nextLine();
-                      tc.cancelTicket(seatCancel,seatCancelType);
+                      tc.cancelTicket(seatCancel);
                       break;
                 case 3:
-                      System.out.print("Enter the seat type (window, aisle, middle): ");
-                       String seatTypeCheck = sc.next();
-                       ca.checkAvailability(seatTypeCheck);
+                     CheckSeatAvailable ca = TicketFactory.createCheckSeatAvailable();
+                       ca.checkAvailability();
                     break;
                 case 4:
                     System.out.println("Exiting the program.");
